@@ -12,10 +12,18 @@ m = size(X, 1);
 num_labels = size(all_theta, 1);
 
 % You need to return the following variables correctly 
-p = zeros(size(X, 1), 1);
 
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
+
+% Here I have considered the dim of theta as (m,#class), for submission
+% purpose it is suppose to be (#class,m)
+
+% hyp = sigmoid(X * all_theta');  %for submission
+% [aa,p]=max(hyp,[],2);           %for submission
+
+[aa,p]=max(sigmoid(X * all_theta),[],2);
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: Complete the following code to make predictions using

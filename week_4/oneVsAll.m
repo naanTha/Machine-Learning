@@ -12,10 +12,21 @@ m = size(X, 1);
 n = size(X, 2);
 
 % You need to return the following variables correctly 
-all_theta = zeros(num_labels, n + 1);
+all_theta = zeros(n+1,num_labels);
 
 % Add ones to the X data matrix
+
 X = [ones(m, 1) X];
+
+options = optimset('GradObj', 'on', 'MaxIter', 50);
+
+for i = 1:num_labels
+    [all_theta(:,i)] = fmincg(@(t)(lrCostFunction(t, X, (y == i), lambda)), zeros(n+1,1), options);
+end;
+
+% Here I have considered the dim of theta as (m,#class), for submission
+% purpose it is suppose to be (#class,m)
+% all_theta = all_theta';     %for submission
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the following code to train num_labels

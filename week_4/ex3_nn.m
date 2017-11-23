@@ -42,6 +42,7 @@ sel = sel(1:100);
 
 displayData(X(sel, :));
 
+
 fprintf('Program paused. Press enter to continue.\n');
 pause;
 
