@@ -26,13 +26,13 @@ for epsilon = min(pval):stepsize:max(pval)
 
     pred = (pval < epsilon);
     
-    TP = pred & yval;
-    
-    Precision = sum(TP) / sum(pred);
-    
-    Recall = sum(TP) / sum(yval);
-    
-    F1 = (2 * Precision * Recall) / (Precision + Recall);
+    TP = 
+
+
+
+
+
+
 
 
 
